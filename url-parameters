@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style type="text/css">
+        body{
+            width:500px;
+            margin:50px auto 0;
+        }
+		form input{
+			width:500px;
+			height:50px;
+		}
+	</style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <form>
+            <table id="table-parameter">
+                <tr id="previous-url">
+                    <td>Previous: </td>
+                    <td>
+                        <input type="text" id="previous" />
+                    </td>
+                </tr>
+                <tr>
+                    <td> Campaign: </td>
+                    <td>
+                        <input type='text' id='campaign'/>
+                    </td>
+                </tr>
+                <tr>
+                    <td> School: </td>
+                    <td>
+                        <input type='text' id='school'/>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Ad: </td>
+                    <td>
+                        <input type='text' id='ad'/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div id="demo"></div>
+        <script>	
+	var previous = document.referrer; // getting Previous page Url
+	document.getElementById('previous').value = previous; // Placing the Previous page url in Previous input field
+    var url_string = window.location.href; // Getting current url location
+    var url = new URL(url_string); // passing the url into string values and store in object
+    
+    var campaign = url.searchParams.get('campaign'); // get the value of campaign from current url location
+    var school = url.searchParams.get('school'); // get the value of school from current url location
+    var ad = url.searchParams.get('ad'); // get the value of ad from current url location
+
+    document.getElementById('campaign').value = campaign; //after getting the value of campaign it will place the value in campaign input field
+    document.getElementById('school').value = school; //after getting the value of school it will place the value in school input field
+    document.getElementById('ad').value = ad;//after getting the value of ad it will place the value in ad input field
+
+    </script>
+    </body>
+</html>
